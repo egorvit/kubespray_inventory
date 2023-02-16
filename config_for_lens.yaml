@@ -1,0 +1,22 @@
+apiVersion: v1
+Kind: Config
+clusters:
+  - name: cluster.local
+    cluster:
+     server: https://192.168.64.8:6443
+     certificate-authority-data: >-
+        <secret>
+        
+contexts:
+  - name: cluster.local
+    context:
+      user: super-admin
+      cluster: cluster.local
+      namespace: kube-system
+users:
+  - name: super-admin
+    user:
+      token: >- 
+        <secret>
+
+сurrent-context: cluster.local
